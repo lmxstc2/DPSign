@@ -37,7 +37,7 @@ jobs:
       - name: Install requirements #安装依赖
         run: |
           wget --no-check-certificate https://github.com/$GITHUB_REPOSITORY/raw/master/requirements.txt
-          python -m pip install --upgrade pip
+          python -m pip install pip==22.3
           pip install -r requirements.txt
       - name: Random sleep
         if: github.event_name == 'schedule'
