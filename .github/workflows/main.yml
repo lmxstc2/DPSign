@@ -13,13 +13,13 @@ jobs:
     steps:
 
       - name: Checkout data
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ secrets.DATA }}
           token: ${{ secrets.TOKEN }}
 
       - name: Checkout flexget_qbittorrent_mod repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: lmxstc2/flexget_qbittorrent_mod
           path: .flexget/plugins
@@ -30,14 +30,14 @@ jobs:
           timezone: Asia/Shanghai
 
       - name: Set up Python #安装python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.10.8
+          python-version: '3.10'
 
       - name: Install requirements #安装依赖
         run: |
           wget --no-check-certificate https://github.com/$GITHUB_REPOSITORY/raw/master/requirements.txt
-          python -m pip install pip==22.3
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Random sleep
         if: github.event_name == 'schedule'
@@ -88,7 +88,7 @@ jobs:
           git commit -m "update new data"
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.TOKEN }}
           repository: ${{ secrets.DATA }}

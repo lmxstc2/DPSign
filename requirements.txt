@@ -1,12 +1,12 @@
-python-telegram-bot==12.8
+python-telegram-bot==13.15
 brotli
 baidu-aip
-pillow==9.5.0
+pillow==10.1.0
 pandas
 matplotlib
 fuzzywuzzy
 python-Levenshtein
-pyppeteer
+pyppeteer>=1.0.2
 pyppeteer_stealth
 chardet
-flexget==3.3.19
+flexget==3.5.35
